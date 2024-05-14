@@ -1,0 +1,693 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://UpgradeShop/UpgradeModule.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fonts/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Transition/Transition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Custom_UI_Module/ProgressBar.png" type="Texture" id=4]
+[ext_resource path="res://UpgradeShop/Scripts/UpgradeShop.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Transition/Fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Transition/Fade:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Transition/Fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Transition/Fade:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "FadeButtonIn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "FadeButtonOut"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Label:custom_colors/font_color_shadow")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "FadeButtonIn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "FadeButtonOut"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Label:custom_colors/font_color_shadow")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "FadeButtonIn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "FadeButtonOut"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Label:custom_colors/font_color_shadow")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "FadeButtonIn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "FadeButtonOut"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Label:custom_colors/font_color_shadow")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "FadeButtonIn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "FadeButtonOut"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Label:custom_colors/font_color_shadow")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "FadeButtonIn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "FadeButtonOut"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Label:custom_colors/font_color_shadow")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "FadeButtonIn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "FadeButtonOut"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Label:custom_colors/font_color_shadow")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "FadeButtonIn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "FadeButtonOut"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Label:custom_colors/font_color_shadow")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "FadeButtonIn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "FadeButtonOut"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Label:custom_colors/font_color_shadow")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "FadeButtonIn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "FadeButtonOut"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Label:custom_colors/font_color_shadow")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="UpgradeShop" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="RoundedLoadIndicator" type="TextureProgress" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 57.0
+margin_top = 20.0
+margin_right = 147.0
+margin_bottom = 110.0
+rect_scale = Vector2( 0.5, 0.5 )
+max_value = 12.0
+value = 12.0
+rounded = true
+texture_progress = ExtResource( 4 )
+fill_mode = 4
+
+[node name="ButtonTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 1.0
+
+[node name="Transition" parent="." instance=ExtResource( 3 )]
+anims/FadeIn = SubResource( 1 )
+anims/FadeOut = SubResource( 2 )
+
+[node name="Fade" parent="Transition" index="0"]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -260.0
+margin_top = -183.0
+margin_right = -32.0
+margin_bottom = 217.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 228.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 228, 30 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Points left: 0"
+align = 1
+valign = 1
+
+[node name="FireNozzle" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 34.0
+margin_right = 228.0
+margin_bottom = 104.0
+
+[node name="Label" parent="VBoxContainer/FireNozzle" index="0"]
+text = "Fire Nozzle"
+
+[node name="AnimationPlayer" parent="VBoxContainer/FireNozzle/HBoxContainer2/Left/CenterContainer/Backgrounds" index="3"]
+anims/FadeButtonIn = SubResource( 3 )
+anims/FadeButtonOut = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+
+[node name="AnimationPlayer" parent="VBoxContainer/FireNozzle/HBoxContainer2/Right/CenterContainer/Backgrounds" index="3"]
+anims/FadeButtonIn = SubResource( 6 )
+anims/FadeButtonOut = SubResource( 33 )
+anims/RESET = SubResource( 8 )
+
+[node name="FireBlanket" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 108.0
+margin_right = 228.0
+margin_bottom = 178.0
+
+[node name="Label" parent="VBoxContainer/FireBlanket" index="0"]
+text = "Fire Blanket"
+
+[node name="AnimationPlayer" parent="VBoxContainer/FireBlanket/HBoxContainer2/Left/CenterContainer/Backgrounds" index="3"]
+anims/FadeButtonIn = SubResource( 9 )
+anims/FadeButtonOut = SubResource( 10 )
+anims/RESET = SubResource( 11 )
+
+[node name="AnimationPlayer" parent="VBoxContainer/FireBlanket/HBoxContainer2/Right/CenterContainer/Backgrounds" index="3"]
+anims/FadeButtonIn = SubResource( 12 )
+anims/FadeButtonOut = SubResource( 13 )
+anims/RESET = SubResource( 14 )
+
+[node name="Gear" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 182.0
+margin_right = 228.0
+margin_bottom = 252.0
+
+[node name="Label" parent="VBoxContainer/Gear" index="0"]
+text = "Gear"
+
+[node name="AnimationPlayer" parent="VBoxContainer/Gear/HBoxContainer2/Left/CenterContainer/Backgrounds" index="3"]
+anims/FadeButtonIn = SubResource( 15 )
+anims/FadeButtonOut = SubResource( 16 )
+anims/RESET = SubResource( 17 )
+
+[node name="AnimationPlayer" parent="VBoxContainer/Gear/HBoxContainer2/Right/CenterContainer/Backgrounds" index="3"]
+anims/FadeButtonIn = SubResource( 18 )
+anims/FadeButtonOut = SubResource( 19 )
+anims/RESET = SubResource( 20 )
+
+[node name="FireExtinguisher" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 256.0
+margin_right = 228.0
+margin_bottom = 326.0
+
+[node name="Label" parent="VBoxContainer/FireExtinguisher" index="0"]
+text = "Extinguisher"
+
+[node name="AnimationPlayer" parent="VBoxContainer/FireExtinguisher/HBoxContainer2/Left/CenterContainer/Backgrounds" index="3"]
+anims/FadeButtonIn = SubResource( 21 )
+anims/FadeButtonOut = SubResource( 22 )
+anims/RESET = SubResource( 23 )
+
+[node name="AnimationPlayer" parent="VBoxContainer/FireExtinguisher/HBoxContainer2/Right/CenterContainer/Backgrounds" index="3"]
+anims/FadeButtonIn = SubResource( 24 )
+anims/FadeButtonOut = SubResource( 25 )
+anims/RESET = SubResource( 26 )
+
+[node name="Axe" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 330.0
+margin_right = 228.0
+margin_bottom = 400.0
+
+[node name="Label" parent="VBoxContainer/Axe" index="0"]
+text = "Axe"
+
+[node name="AnimationPlayer" parent="VBoxContainer/Axe/HBoxContainer2/Left/CenterContainer/Backgrounds" index="3"]
+anims/FadeButtonIn = SubResource( 27 )
+anims/FadeButtonOut = SubResource( 28 )
+anims/RESET = SubResource( 29 )
+
+[node name="AnimationPlayer" parent="VBoxContainer/Axe/HBoxContainer2/Right/CenterContainer/Backgrounds" index="3"]
+anims/FadeButtonIn = SubResource( 30 )
+anims/FadeButtonOut = SubResource( 31 )
+anims/RESET = SubResource( 32 )
+
+[editable path="Transition"]
+[editable path="VBoxContainer/FireNozzle"]
+[editable path="VBoxContainer/FireNozzle/HBoxContainer2/Left"]
+[editable path="VBoxContainer/FireNozzle/HBoxContainer2/Right"]
+[editable path="VBoxContainer/FireBlanket"]
+[editable path="VBoxContainer/FireBlanket/HBoxContainer2/Left"]
+[editable path="VBoxContainer/FireBlanket/HBoxContainer2/Right"]
+[editable path="VBoxContainer/Gear"]
+[editable path="VBoxContainer/Gear/HBoxContainer2/Left"]
+[editable path="VBoxContainer/Gear/HBoxContainer2/Right"]
+[editable path="VBoxContainer/FireExtinguisher"]
+[editable path="VBoxContainer/FireExtinguisher/HBoxContainer2/Left"]
+[editable path="VBoxContainer/FireExtinguisher/HBoxContainer2/Right"]
+[editable path="VBoxContainer/Axe"]
+[editable path="VBoxContainer/Axe/HBoxContainer2/Left"]
+[editable path="VBoxContainer/Axe/HBoxContainer2/Right"]

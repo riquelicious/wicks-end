@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Fonts/OldNewspaperTypes.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Menu/Assets/Textures/UI/ButtonGlow.png" type="Texture" id=2]
+[ext_resource path="res://UpgradeShop/Scripts/DecrementUpgrade.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+outline_color = Color( 1, 1, 1, 0.27451 )
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeButtonIn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "FadeButtonOut"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Label:custom_colors/font_color_shadow")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="Button" type="Control"]
+rect_min_size = Vector2( 40, 40 )
+script = ExtResource( 3 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Backgrounds" type="Control" parent="CenterContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/Backgrounds"]
+modulate = Color( 1, 1, 1, 0.196078 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ButtonBackground" type="ColorRect" parent="CenterContainer/Backgrounds"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+
+[node name="Tween" type="Tween" parent="CenterContainer/Backgrounds/ButtonBackground"]
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/Backgrounds"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -50.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Backgrounds/CenterContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "<"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/Backgrounds"]
+anims/FadeButtonIn = SubResource( 2 )
+anims/FadeButtonOut = SubResource( 4 )
+anims/RESET = SubResource( 3 )
+
+[connection signal="mouse_entered" from="CenterContainer/Backgrounds" to="." method="_on_Backgrounds_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/Backgrounds" to="." method="_on_Backgrounds_mouse_exited"]
