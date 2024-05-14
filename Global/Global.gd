@@ -1,22 +1,18 @@
 extends Node
 
-
-
-export var hover_time = 1.5
-export var upgrade_points = 10
-export var play_level = 0 # +1 for current level
+#button
+onready var hover_time = 1.5
+onready var upgrade_points = 10
+onready var play_level = 0 # +1 for current level
 
 
 #Settings
-export var sfx_volume = 0.0
+onready var sfx_volume = 0.0
+
+#Type Speed
+
+onready var read_time = 4
+onready var typing_speed = 0.01
 
 func _ready() -> void:
-
-
-
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass

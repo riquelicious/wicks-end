@@ -10,8 +10,6 @@ font_data = ExtResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 1 )
-typing_speed = null
-read_time = null
 
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
