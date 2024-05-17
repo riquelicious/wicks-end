@@ -38,7 +38,7 @@ func wait_to_start():
 	var wait = Timer.new()
 	wait.one_shot = true
 	add_child(wait)
-	wait.start(3)
+	wait.start(5)
 	yield(wait,"timeout")
 	emit_signal("wait_done")
 	

@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/UI/EqipmentsUiGP.gd" type="Script" id=1]
+[ext_resource path="res://Custom_UI_Module/EquipmentUI/Nozzle.png" type="Texture" id=2]
+[ext_resource path="res://Custom_UI_Module/EquipmentUI/Extinguisher.png" type="Texture" id=3]
+[ext_resource path="res://Custom_UI_Module/EquipmentUI/Axe.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color( 0, 0, 0, 0 )
+
+[node name="EqipmentsUiGP" type="PanelContainer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -174.0
+margin_right = 147.0
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 1 )
+
+[node name="Nozzle" type="VBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 127.0
+margin_bottom = 154.0
+
+[node name="Img" type="TextureRect" parent="Nozzle"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_right = 107.0
+margin_bottom = 107.0
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Nozzle"]
+margin_top = 111.0
+margin_right = 107.0
+margin_bottom = 134.0
+text = "Nozzle"
+align = 1
+
+[node name="Axe" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 127.0
+margin_bottom = 127.0
+
+[node name="Img" type="TextureRect" parent="Axe"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_right = 107.0
+margin_bottom = 107.0
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Axe"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -23.0
+margin_right = 58.0
+text = "Axe"
+align = 1
+
+[node name="Extinguisher" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 127.0
+margin_bottom = 127.0
+
+[node name="Img" type="TextureRect" parent="Extinguisher"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_right = 107.0
+margin_bottom = 107.0
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Extinguisher"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -23.0
+margin_right = 58.0
+text = "Extinguisher"
+valign = 1

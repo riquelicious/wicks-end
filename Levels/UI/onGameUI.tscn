@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Fonts/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Levels/UI/Timer.gd" type="Script" id=3]
+[ext_resource path="res://Levels/UI/Gauges.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/UI/EqipmentsUiGP.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="UI"]
+anchor_right = 1.0
+margin_top = 20.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 2 )
+text = "00:00:00"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Countdown" type="Timer" parent="UI"]
+one_shot = true
+
+[node name="Gauges" parent="UI" instance=ExtResource( 4 )]
+
+[node name="EqipmentsUiGP" parent="UI" instance=ExtResource( 6 )]
+
+[connection signal="timeout" from="UI/Countdown" to="UI" method="_on_Countdown_timeout"]
