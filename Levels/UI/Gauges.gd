@@ -7,10 +7,13 @@ onready var nTween = $tweenNozzleUp
 onready var nTween1 = $tweenNozzleDown
 onready var timer = $tweenWait
 var increment = 1
-var water_value = 0
+var water_value = 100
+var extinguisher_value = 100
 var is_water_on = false
-var water_decrease_value = 0.3
+var is_extinguisher_on = false
+var water_decrease_value = 0.5
 var water_increase_value = 0.2
+var sub = "nozzle"
 
 func _ready() -> void:
 	pass 
@@ -28,6 +31,13 @@ func change_health(effect,value):
 		tween.interpolate_property(healthbar,"value",healthbar.value,x,0.3,tween.TRANS_CUBIC,tween.EASE_IN_OUT)
 		tween.start()
 
+func change_extunguisher(is_on=false):
+	is_extinguisher_on = is_on
+	if is_extinguisher_on:
+		if extinguisher_value > 0:
+			extinguisher_value -= water_decrease_value
+		pass
+	
 func water_guage(is_on=false):
 	is_water_on = is_on
 	#when on
@@ -49,12 +59,16 @@ func water_guage(is_on=false):
 			if water_value < 100:
 				water_value += water_increase_value
 		pass
-	waterbar.value = water_value
+	
 	pass
 
 func _process(_delta: float) -> void:
 	water_guage(is_water_on)
-	#print(timer.time_left)
+	
+	if sub == "nozzle":
+		waterbar.value = water_value
+	elif sub == "extinguisher":
+		waterbar.value = extinguisher_value
 	pass
 
 

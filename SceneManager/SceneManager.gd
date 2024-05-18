@@ -9,7 +9,8 @@ onready var levels = [
 	"res://Levels/Level2/Level2.tscn",
 	"res://Levels/Level3/Level3.tscn",
 	"res://Levels/Level4/Level4.tscn",
-	"res://Levels/Level5/Level5.tscn"
+	"res://Levels/Level5/Level5.tscn",
+	"res://Menu/MainMenu.tscn"
 ]
 
 signal wait_done

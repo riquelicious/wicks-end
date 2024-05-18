@@ -12,11 +12,13 @@ func _ready() -> void:
 	anim.play_backwards("Fade")
 	pass # Replace with function body.
 
-func change_scene(scene_path:String):
+func change_scene(scene_path:String, reset = false):
 	anim.play("Fade")
 	yield(anim,"animation_finished")
 	var _result = get_tree().change_scene(scene_path)
 	anim.play_backwards("Fade")
+	if reset:
+		Global.play_level = 0
 
 
 func quit():

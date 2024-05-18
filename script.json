@@ -33,5 +33,12 @@
             "0": "Mark: Susss, ikaw pa",
             "1": "Tite: Kung ayaw mo maniwala umalis ka na sa harap ko"
         }
+    },
+    "LVL6": {
+        "PIC": "path:://asdasdsa",
+        "LVLSCRPT": {
+            "0": "Game_Over",
+            "1": "Game_over"
+        }
     }
 }

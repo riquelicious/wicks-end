@@ -1,6 +1,6 @@
 extends Control
 
-onready var label = $Label
+onready var label = $CenterContainer/Label
 onready var countdown = $Countdown
 onready var parent = $".."
 
@@ -47,3 +47,5 @@ func start_timer(n):
 
 func _on_Countdown_timeout() -> void:
 	emit_signal("game_over")
+	Global.play_level = 5 #game over?
+	TransitionScene.change_scene("res://SceneManager/SceneManager.tscn")
