@@ -1,38 +1,86 @@
 {
     "LVL1": {
-        "PIC": "path:://sdadsad",
+        "PICSTART": {
+            "0": "path:://sdadsad",
+            "1": "path:://sdadsad"
+        },
+        "PECEND":{
+            "0": "path:://sdadsad",
+            "1": "path:://sdadsad",
+            "2": "path:://sdadsad"
+        },
         "LVLSCRPT": {
-            "0": "      In the bustling fire station, surrounded by the hum of equipment and the camaraderie of your fellow firefighters, you stand ready for another day on the frontline. The scent of smoke stirs memories of past battles won and lives saved.",
-            "1": "      Today feels different, though. An unsettling undercurrent tugs at your senses. As you prepare for what lies ahead, you sense that today's fires will test not just your skills, but your very essence."
+            "0": "      In the bustling fire station, surrounded by the hum of equipment and the camaraderie of fellow firefighters, the preparation for another challenging mission begins. The alarm sounds, and the team springs into action. As you gear up, a sense of anticipation fills the air. This is what you’ve trained for, and every moment counts when lives are at stake.",
+            "1": "      Climbing into the fire engine, the city’s skyline is blurred by the smoke rising in the distance. Your mind races with the responsibilities ahead, but you are ready to face the flames and protect those in need. The engine roars to life, and you speed towards the inferno, determined and focused."
+        },
+        "LVLEND": {
+            "0": "      As you make your way deeper into the building, the heat intensifies, and the smoke thickens. Suddenly, a section of the ceiling collapses, and debris rains down. A heavy blow knocks you unconscious, and the world fades to black.",
+            "1": "      You awaken to the sound of muffled voices and the sensation of being carried. Opening your eyes, you see Lieutenant Mark Thompson’s determined face above you. Despite the chaos around, he remains calm and focused, carrying you to safety with unwavering strength.",
+            "2": "      Once outside, Mark gently sets you down, his own uniform singed and his face smeared with soot. He reassures you, his voice steady despite the minor injuries he sustained during the rescue. His actions reinforce his reputation as a trusted leader and deepen your respect for him. As you catch your breath, you realize the bond between you has grown stronger, cemented by this shared ordeal."
         }
     },
     "LVL2": {
-        "PIC": "path:://asdasdsa",
+        "PICSTART": {
+            "0": "path:://sdadsad",
+            "1": "path:://sdadsad"
+        },
         "LVLSCRPT": {
-            "0": "Mark: Hala Bakit pre?",
-            "1": "Tite: Wala lang, miss u"
+            "0": "      Back at the fire station, the atmosphere is lighter. The team shares a laugh, joking about the latest mission. Someone quips, “Maybe it’s one of us setting these fires just for the thrill!” The room fills with laughter, easing the tension from the day’s events. The camaraderie is palpable as you enjoy the brief respite.",
+            "1": "      Mark gathers everyone, his expression serious. “We’ve got crucial information,” he announces, holding up evidence implicating a hooded figure as the arsonist. The room falls silent, the gravity of the situation sinking in. Mark’s leadership shines as he rallies the team, instilling a sense of urgency and determination to stop the arsonist."
         }
     },
     "LVL3": {
-        "PIC": "path:://asdasdsa",
+        "PICSTART": {
+            "0": "path:://sdadsad",
+            "1": "path:://sdadsad",
+            "2": "path:://sdadsad",
+            "3": "path:://sdadsad"
+        },
         "LVLSCRPT": {
-            "0": "Mark: HAHAHA Baliw ka talaga",
-            "1": "Tite: OA since birth pre HAHAHA"
+            "0": "      Back at the fire station, you pass by a corner and overhear a hushed conversation. Glancing quickly, you see a colleague talking to a shady figure. Their words are muffled, and the tone is serious, but you can't make out the details.",
+            "1": "      Before you can think too much about it, the station’s alarm blares. You’re called to action, and the conversation is pushed to the back of your mind as you rush to gear up for the next mission.",
+            "2": "      The team gathers quickly, and the atmosphere shifts to one of urgent focus. The captain announces the details of the next mission: a fire has broken out in an abandoned factory on the outskirts of town. The factory is known to be structurally unstable, making the mission particularly dangerous.",
+            "3": "      Mark steps forward, his authoritative presence commanding respect as he briefs the team on the situation. He emphasizes the importance of caution and teamwork, rallying the team with his calm and confident demeanor."
+        
         }
     },
     "LVL4": {
-        "PIC": "path:://asdasdsa",
+        "PICSTART": {
+            "0": "path:://sdadsad",
+            "1": "path:://sdadsad",
+            "2": "path:://sdadsad",
+            "3": "path:://sdadsad"
+        },
         "LVLSCRPT": {
-            "0": "Mark: Tara shot na",
-            "1": "Tite: Ulol di ako umiinom"
+            "0": "      The alarm blares, and you rush to gear up. This time, it's a residential apartment building engulfed in flames. Families are trapped inside, and every second counts. As you and your team arrive on the scene, the scale of the disaster becomes clear. The building is an inferno, with flames licking out of windows and thick smoke billowing into the sky. Your heart pounds as you prepare to enter the chaos, knowing that lives hang in the balance."
+        },
+        "LVLMID": {
+            "0": "      In the heart of the inferno, you push through the thick smoke and oppressive heat, searching for survivors. Suddenly, through the haze, you spot a figure moving with purpose. It's Jack, an investigative journalist with a reputation for digging deep. His presence amidst the chaos is unexpected and brings an added sense of urgency.",
+            "1": "      “There’s more to these fires than you know,” Jack says, his voice cutting through the noise. He insists on accompanying you, driven by a burning desire for the truth. As you exchange words amidst the smoke and flames, it becomes clear that Jack has a personal stake in this investigation, adding complexity to the unfolding mystery."
+        },
+        "LVLEND": {
+            "0": "      With Jack by your side, you delve deeper into the building. His knowledge and insight prove invaluable as you navigate through the treacherous environment. Together, you uncover crucial clues hidden in the wreckage, each one revealing more about the larger conspiracy at play.",
+            "1": "      In a brief moment of respite, Jack formally introduces himself. “I'm Jack Harris, an investigative journalist,” he says, his voice steady amidst the chaos. “I've been following these fires closely, and something doesn’t add up.”",
+            "2": "      He confides in you about his suspicions regarding Mark. “I think he may be involved,” Jack says, explaining the evidence he’s uncovered. “Sometimes, the ones we trust the most are the ones hiding the darkest secrets.”",
+            "3": "      With Jack's revelation, the urgency to uncover the truth intensifies. Together, you press on, determined to unravel the mystery and confront the darkness lurking within the fire department."
         }
+        
     },
     "LVL5": {
-        "PIC": "path:://asdasdsa",
+        "PIC": "",
         "LVLSCRPT": {
-            "0": "Mark: Susss, ikaw pa",
-            "1": "Tite: Kung ayaw mo maniwala umalis ka na sa harap ko"
+            "0": "      In the dimly lit halls of the fire station, Jack and you intercept a critical piece of information: City Hall is Mark's next target. Urgency seizes you both as you hasten to thwart his plans, the urgency of your steps echoing through the empty corridors. But as you arrive, a grim realization sets in—the flames have already begun their relentless advance, casting an ominous glow over the once-familiar surroundings."
+        },
+        "LVLMID": {
+            "0": "      In the dimly lit halls of City Hall, Mark stands as a shadow of his former self, his once-commanding presence now marred by the weight of truth. “I never intended for any of this,” he confesses, his voice heavy with remorse. “But when my father was injured, everything changed.”",
+            "1": "      As Mark's haunting words hang in the air, you find yourself grappling with a moral quandary. “Is the pain of one man enough to justify the devastation wrought upon an entire city?” you ponder, the flames flickering ominously, casting doubt and uncertainty upon the once-clear path ahead."
+        },
+        "LVLEND": {
+            "0": "      Jack and Mark, two figures on opposite ends of the moral spectrum, come into stark relief. Jack, driven by an unwavering commitment to truth and justice, sacrifices himself for the greater good of the city, while Mark, consumed by personal anguish and misguided intentions, sacrifices everything for the sake of one.",
+            "1": "      As you contemplate the diverging paths of these two men, a somber realization dawns. They are at opposite sides of the candle's wick, standing at the precipice of Wick's End, where the flames of truth illuminate the darkness."
         }
+        
+
     },
     "LVL6": {
         "PIC": "path:://asdasdsa",
