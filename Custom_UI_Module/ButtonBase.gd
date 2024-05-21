@@ -42,7 +42,7 @@ func _on_Control_mouse_entered() -> void:
 
 	#hover animation
 	animation_player_bg.play("shade_in")
-	GlobalSound.hover_sound()
+	SoundFx.hover_sound()
 
 	#shows circular progressbar
 	loader = loader_pack.instance()
@@ -51,7 +51,7 @@ func _on_Control_mouse_entered() -> void:
 	yield(loader,"loading_done")
 
 	#confirms when loading finishes
-	GlobalSound.confirm_sound()
+	SoundFx.confirm_sound()
 
 	#run "initiate" function on parent node
 	if parent_node.get_script() != null:

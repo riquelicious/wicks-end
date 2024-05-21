@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/candle.mp3-f8a2b58c827b8fb14bad342976d8a056.mp3str"
+
+[deps]
+
+source_file="res://Music/candle.mp3"
+dest_files=[ "res://.import/candle.mp3-f8a2b58c827b8fb14bad342976d8a056.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

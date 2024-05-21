@@ -34,6 +34,7 @@ var messages = ""
 var message = ""
 
 func _ready() -> void:
+	Music.play_music('candle')
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN) 
 	loadJson()
 	start_dialogue(Global.play_level, Global.dialogue_position)
@@ -105,9 +106,9 @@ func _on_charTimer_timeout() -> void:
 			punctuation_pause(1.5)
 			print("found")
 		textbox.set_visible_characters(current_char)	
-		GlobalSound.type_sound()
+		SoundFx.type_sound()
 	else:
-		GlobalSound.type_space_sound()
+		SoundFx.type_space_sound()
 		charTimer.stop()
 		Delay.set_wait_time(read_time)
 		Delay.start()

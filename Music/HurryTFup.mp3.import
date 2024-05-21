@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HurryTFup.mp3-ed92320c1d8240993aaac9de9f476574.mp3str"
+
+[deps]
+
+source_file="res://Music/HurryTFup.mp3"
+dest_files=[ "res://.import/HurryTFup.mp3-ed92320c1d8240993aaac9de9f476574.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
