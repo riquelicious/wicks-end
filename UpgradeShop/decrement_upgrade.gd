@@ -1,5 +1,5 @@
 extends Control
-
+onready var parent_node = $"../.."
 
 onready var upgradebar = $"../TextureProgress"
 
@@ -11,5 +11,6 @@ func initiate():
 
 func changeValue():
 	if upgradebar.value > 0:
-		Global.upgrade_points += 1
-		upgradebar.value -= 1
+		Savefile.save_data['points'] += 1
+		Savefile.save_data['upgrade'][parent_node.name.to_lower()] -= 1
+	upgradebar.value = Savefile.save_data['upgrade'][parent_node.name.to_lower()]

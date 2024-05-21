@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Custom_UI_Module/miniHoverButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UpgradeShop/UpgradeLevel.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Theme.tres" type="Theme" id=6]
 [ext_resource path="res://Fonts/OldNewspaperTypes.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://UpgradeShop/Label.gd" type="Script" id=8]
+[ext_resource path="res://UpgradeShop/TextureProgress.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 7 )
@@ -34,6 +35,7 @@ margin_bottom = 40.0
 max_value = 3.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 2 )
+script = ExtResource( 9 )
 
 [node name=">" parent="Control" instance=ExtResource( 1 )]
 anchor_left = 1.0
@@ -56,3 +58,5 @@ align = 1
 valign = 1
 uppercase = true
 script = ExtResource( 8 )
+
+[connection signal="visibility_changed" from="." to="Control/TextureProgress" method="_on_Control_visibility_changed"]

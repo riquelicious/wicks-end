@@ -1,6 +1,6 @@
-extends Label
-
-
+extends Control
+onready var anim = $"../../../../../AnimationPlayer"
+onready var parent_node = $"../../../../../.."
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
@@ -10,9 +10,13 @@ extends Label
 func _ready() -> void:
 	pass # Replace with function body.
 
-func _process(_delta: float) -> void:
-	self.text = "Points: " + str(Savefile.save_data['points'])
-
+func initiate():
+	anim.play("QueueFree")
+	yield(anim,"animation_finished")
+	SaveLoadScript.save_game()
+	parent_node.do_signal()
+	parent_node.queue_free()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass

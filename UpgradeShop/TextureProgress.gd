@@ -1,5 +1,5 @@
-extends Label
-
+extends TextureProgress
+onready var parent = $"../.."
 
 # Declare member variables here. Examples:
 # var a: int = 2
@@ -10,9 +10,12 @@ extends Label
 func _ready() -> void:
 	pass # Replace with function body.
 
-func _process(_delta: float) -> void:
-	self.text = "Points: " + str(Savefile.save_data['points'])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
+
+
+func _on_Control_visibility_changed() -> void:
+	self.value = Savefile.save_data['upgrade'][parent.name.to_lower()]
+	pass # Replace with function body.

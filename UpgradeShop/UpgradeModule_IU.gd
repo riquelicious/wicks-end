@@ -1,5 +1,5 @@
-extends Label
-
+extends Control
+onready var upgradebar = $Control/TextureProgress
 
 # Declare member variables here. Examples:
 # var a: int = 2
@@ -8,10 +8,9 @@ extends Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	pass # Replace with function body.
 
-func _process(_delta: float) -> void:
-	self.text = "Points: " + str(Savefile.save_data['points'])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:

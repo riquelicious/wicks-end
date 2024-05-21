@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 onready var anim = $AnimationPlayer
+
 signal show_finished
 signal hide_finished
 # Called when the node enters the scene tree for the first time.

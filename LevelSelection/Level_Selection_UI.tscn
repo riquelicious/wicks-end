@@ -163,7 +163,7 @@ align = 1
 anims/shade_in = SubResource( 4 )
 anims/shade_out = SubResource( 5 )
 
-[node name="Back" parent="Control/Control" instance=ExtResource( 3 )]
+[node name="Back to Main Menu" parent="Control/Control" instance=ExtResource( 3 )]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -176,11 +176,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Label" parent="Control/Control/Back/Control" index="0"]
+[node name="Label" parent="Control/Control/Back to Main Menu/Control" index="0"]
 margin_left = 0.0
 align = 1
 
-[node name="AnimationPlayer" parent="Control/Control/Back/Control" index="1"]
+[node name="AnimationPlayer" parent="Control/Control/Back to Main Menu/Control" index="1"]
 anims/shade_in = SubResource( 2 )
 anims/shade_out = SubResource( 3 )
 
@@ -196,4 +196,4 @@ anims/Hide = SubResource( 1 )
 
 [editable path="Control/Control/Upgrade"]
 [editable path="Control/Control/Play"]
-[editable path="Control/Control/Back"]
+[editable path="Control/Control/Back to Main Menu"]

@@ -11,4 +11,4 @@ func initiate():
 		if r.name == "GameMenu":
 			r.to_level()
 		pass
-
+	Savefile.save_data = Savefile.new_save_data

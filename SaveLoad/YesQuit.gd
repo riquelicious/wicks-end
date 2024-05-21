@@ -1,6 +1,6 @@
-extends Label
+extends Control
 
-
+onready var anim = $"../../../../../AnimationPlayer"
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
@@ -10,8 +10,8 @@ extends Label
 func _ready() -> void:
 	pass # Replace with function body.
 
-func _process(_delta: float) -> void:
-	self.text = "Points: " + str(Savefile.save_data['points'])
+func initiate():
+	anim.play("HideConfirm")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
