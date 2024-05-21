@@ -9,10 +9,14 @@ onready var levels = [
 	"res://Levels/Level2/Level2.tscn",
 	"res://Levels/Level3/Level3.tscn",
 	"res://Levels/Level4/Level4.tscn",
-	"res://Levels/Level5/Level5.tscn",
-	"res://Menu/MainMenu.tscn"
+	"res://Levels/Level5/Level5.tscn"
 ]
-
+var position_pic = null
+var pos = null
+var destination_path = null
+var prev_pic = ""
+onready var rect = $Control/CenterContainer2/TextureRect
+var index = ""
 signal wait_done
 
 onready var typing_speed:float = Global.typing_speed
@@ -30,7 +34,7 @@ var message = ""
 
 func _ready() -> void:
 	loadJson()
-	start_dialogue(Global.play_level)
+	start_dialogue(Global.play_level, Global.dialogue_position)
 	#starts dialogue of current level
 	pass # Replace with function body.
 
@@ -54,13 +58,26 @@ func loadJson():
 
 
 
-func start_dialogue(level):
+func start_dialogue(level,position):
+	position_pic = position
+	print("start_dialogue ("+ str(level) + ","+ position +")")
+	if str(level).is_valid_integer():
+		if (len(levels) > int(level)) and (int(level) > -1):
+			current_level = level + 1
+			index = "LVL"+str(current_level)
+	else:
+		print("its not")
+		index = level
+	if position == "intro":
+		pos = "LVLSCRPT"
+	elif position == "end":
+		pos = "LVLEND"
+	changePic(position)
 	wait_to_start() 
 	yield(self,"wait_done")
-	current_level = level + 1
 	current_message = 0
 	current_char = 0
-	message = messages["LVL"+str(current_level)]["LVLSCRPT"][str(current_message)]
+	message = messages[index][pos][str(current_message)]
 	textbox.bbcode_text = (message)
 	textbox.set_visible_characters(current_char)
 	charTimer.set_wait_time(typing_speed)
@@ -81,18 +98,45 @@ func _on_charTimer_timeout() -> void:
 
 
 func _on_DialogueDelay_timeout() -> void:
-	if (current_message == len(messages["LVL"+str(current_level)]["LVLSCRPT"]) - 1):
+	if (current_message == len(messages[index][pos]) - 1):
+		var local_index = index.substr(3,3)
+		print(local_index, local_index.is_valid_integer())
+		if str(local_index).is_valid_integer():
+			
+			if (len(levels) > int(local_index)) and (int(index) > -1):
+				destination_path = levels[int(local_index)-1]
+		else:
+			Global.is_gameover = true
+			destination_path = "res://Menu/MainMenu.tscn"
+			pass
 		wait_to_start() 
 		yield(self,"wait_done")
-		TransitionScene.change_scene(levels[Global.play_level])
-		#emit_signal("scene_finished")
-		#stop_dialogue()
+		TransitionScene.change_scene(destination_path)
+		Global.dialogue_position = "intro"
 		pass
 	else: 
 		current_message += 1
-		message = messages["LVL"+str(current_level)]["LVLSCRPT"][str(current_message)]
+		changePic(position_pic)
+		message = messages[index][pos][str(current_message)]
 		current_char = 0
 		textbox.set_visible_characters(current_char)
 		textbox.text = message
 		charTimer.start()
+		
 	pass # Replace with function body.
+
+func changePic(position):
+	var pic = null
+	if position == "intro":
+		if prev_pic == pic:
+			return
+		print(index)
+		pic = messages[index]["PICSTART"][str(current_message)]
+	elif position == "end":
+		if prev_pic == pic:
+			return
+		pic = messages[index]["PICEND"][str(current_message)]
+	prev_pic = pic
+	rect.set_texture(load(pic))
+	#print(rect.texture)
+	

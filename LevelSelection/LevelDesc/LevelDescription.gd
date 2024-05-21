@@ -15,6 +15,7 @@ onready var anim_array:Array =[
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.play_level = 0
 	pass # Replace with function body.
 
 func compute_destination(operation):

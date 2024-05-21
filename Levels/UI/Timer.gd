@@ -10,6 +10,13 @@ signal game_over
 func _ready() -> void:
 	pass
 
+func level_finished():
+	Global.is_gameover = true
+	Global.dialogue_position = "end"
+	Global.play_level = "gameover"
+	TransitionScene.change_scene("res://SceneManager/SceneManager.tscn")
+	
+
 func _process(_delta: float) -> void:
 	if parent.get_script() != null:
 		var p = format_text(countdown.time_left)
@@ -26,7 +33,7 @@ func input():
 
 	
 	if Input.is_action_just_pressed("ui_select"):
-		$Gauges.change_health("heal",10)
+		level_finished()
 		
 
 
@@ -47,5 +54,5 @@ func start_timer(n):
 
 func _on_Countdown_timeout() -> void:
 	emit_signal("game_over")
-	Global.play_level = 5 #game over?
+	Global.play_level = "gameover" #game over?
 	TransitionScene.change_scene("res://SceneManager/SceneManager.tscn")

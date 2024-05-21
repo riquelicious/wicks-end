@@ -1,13 +1,13 @@
 {
     "LVL1": {
         "PICSTART": {
-            "0": "path:://sdadsad",
-            "1": "path:://sdadsad"
+            "0": "res://SceneManager/Pictures/LVL1-START1.jpg",
+            "1": "res://SceneManager/Pictures/LVL1-START1.jpg"
         },
-        "PECEND":{
-            "0": "path:://sdadsad",
-            "1": "path:://sdadsad",
-            "2": "path:://sdadsad"
+        "PICEND":{
+            "0": "res://SceneManager/Pictures/LVL1-END1.jpg",
+            "1": "res://SceneManager/Pictures/LVL1-END1.jpg",
+            "2": "res://SceneManager/Pictures/LVL1-END2.jpg"
         },
         "LVLSCRPT": {
             "0": "      In the bustling fire station, surrounded by the hum of equipment and the camaraderie of fellow firefighters, the preparation for another challenging mission begins. The alarm sounds, and the team springs into action. As you gear up, a sense of anticipation fills the air. This is what you’ve trained for, and every moment counts when lives are at stake.",
@@ -82,11 +82,14 @@
         
 
     },
-    "LVL6": {
-        "PIC": "path:://asdasdsa",
+    "gameover": {
+        "PICSTART": {
+            "0": "res://SceneManager/Pictures/LVL1-END1.jpg",
+            "1": "res://SceneManager/Pictures/LVL1-END1.jpg"
+        },
         "LVLSCRPT": {
-            "0": "Game_Over",
-            "1": "Game_over"
+            "0": "The heat intensified as the flames closed in, overwhelming your senses. Despite your valiant efforts, the fire proved too fierce. As the world faded into a haze of smoke, a calmness settled in—knowing you had given everything.",
+            "1": "Your sacrifice won’t be forgotten. The bravery shown amidst the chaos will inspire others to continue the fight. Though this battle ends here, the spirit of resilience endures, ready to rise again."
         }
     }
 }
