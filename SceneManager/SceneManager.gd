@@ -11,6 +11,7 @@ onready var levels = [
 	"res://Levels/Level4/Level4.tscn",
 	"res://Levels/Level5/Level5.tscn"
 ]
+onready var debug = $Control/Debug
 var position_pic = null
 var pos = null
 var destination_path = null
@@ -33,17 +34,21 @@ var messages = ""
 var message = ""
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN) 
 	loadJson()
 	start_dialogue(Global.play_level, Global.dialogue_position)
 	#starts dialogue of current level
 	pass # Replace with function body.
+
+func _process(delta: float) -> void:
+	debug.text = "charTimer: " + str(charTimer.time_left) + "\nDelay: " + str(Delay.time_left)
 
 #Delay
 func wait_to_start():
 	var wait = Timer.new()
 	wait.one_shot = true
 	add_child(wait)
-	wait.start(5)
+	wait.start(3)
 	yield(wait,"timeout")
 	emit_signal("wait_done")
 	
@@ -82,11 +87,23 @@ func start_dialogue(level,position):
 	textbox.set_visible_characters(current_char)
 	charTimer.set_wait_time(typing_speed)
 	charTimer.start()
-	
+
+func punctuation_pause(time):
+	charTimer.paused = true
+	var timz = Timer.new()
+	add_child(timz)
+	timz.start(time)
+	yield(timz,"timeout")
+	charTimer.paused = false
 
 func _on_charTimer_timeout() -> void:
 	if (current_char < len(message)):
 		current_char += 1
+		if message[current_char-1] == ",":
+			punctuation_pause(1)
+		if message[current_char-1] == ".":
+			punctuation_pause(1.5)
+			print("found")
 		textbox.set_visible_characters(current_char)	
 		GlobalSound.type_sound()
 	else:
@@ -100,14 +117,17 @@ func _on_charTimer_timeout() -> void:
 func _on_DialogueDelay_timeout() -> void:
 	if (current_message == len(messages[index][pos]) - 1):
 		var local_index = index.substr(3,3)
-		print(local_index, local_index.is_valid_integer())
-		if str(local_index).is_valid_integer():
-			
-			if (len(levels) > int(local_index)) and (int(index) > -1):
-				destination_path = levels[int(local_index)-1]
-		else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
+		if Global.back_to_menu == false:
+			if str(local_index).is_valid_integer():
+				if (len(levels) > int(local_index)) and (int(index) > -1):
+					destination_path = levels[int(local_index)-1]
+				else:
+					print("invalid int")
+		elif Global.back_to_menu == true:
 			Global.is_gameover = true
 			destination_path = "res://Menu/MainMenu.tscn"
+			Global.back_to_menu = false
 			pass
 		wait_to_start() 
 		yield(self,"wait_done")
@@ -135,6 +155,7 @@ func changePic(position):
 	elif position == "end":
 		if prev_pic == pic:
 			return
+
 		pic = messages[index]["PICEND"][str(current_message)]
 	prev_pic = pic
 	rect.set_texture(load(pic))

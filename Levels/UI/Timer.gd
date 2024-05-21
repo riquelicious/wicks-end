@@ -13,7 +13,7 @@ func _ready() -> void:
 func level_finished():
 	Global.is_gameover = true
 	Global.dialogue_position = "end"
-	Global.play_level = "gameover"
+	Global.back_to_menu = true
 	TransitionScene.change_scene("res://SceneManager/SceneManager.tscn")
 	
 
@@ -25,6 +25,7 @@ func _process(_delta: float) -> void:
 		#print("Parent Has no Scipt")
 		pass 
 	input()
+	
 """
 for testing
 """

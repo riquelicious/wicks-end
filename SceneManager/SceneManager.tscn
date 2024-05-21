@@ -50,6 +50,11 @@ texture = ExtResource( 3 )
 [node name="charTimer" type="Timer" parent="Control"]
 
 [node name="DialogueDelay" type="Timer" parent="Control"]
+one_shot = true
+
+[node name="Debug" type="Label" parent="Control"]
+margin_right = 40.0
+margin_bottom = 23.0
 
 [connection signal="timeout" from="Control/charTimer" to="." method="_on_charTimer_timeout"]
 [connection signal="timeout" from="Control/DialogueDelay" to="." method="_on_DialogueDelay_timeout"]
