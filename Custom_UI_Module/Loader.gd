@@ -1,8 +1,8 @@
-extends CenterContainer
+extends CanvasLayer
 
 signal loading_done
 
-onready var loader = $TextureProgress
+onready var loader = $CenterContainer/TextureProgress
 var timer: Timer
 
 func _ready() -> void:

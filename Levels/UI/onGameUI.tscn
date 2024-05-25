@@ -1,13 +1,17 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Fonts/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Fonts/metropolis/Metropolis-Regular.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Levels/UI/Timer.gd" type="Script" id=3]
 [ext_resource path="res://Levels/UI/Gauges.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Levels/UI/EqipmentsUiGP.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
 font_data = ExtResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -24,9 +28,10 @@ margin_top = 20.0
 margin_bottom = 50.0
 
 [node name="Label" type="Label" parent="UI/CenterContainer"]
-margin_left = 433.0
-margin_right = 591.0
-margin_bottom = 50.0
+margin_left = 418.0
+margin_right = 606.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "00:00:00"
 valign = 1
@@ -39,6 +44,32 @@ one_shot = true
 
 [node name="Gauges" parent="UI" instance=ExtResource( 4 )]
 
+[node name="Water" parent="UI/Gauges" index="1"]
+margin_left = 111.0
+margin_top = 460.0
+margin_right = 332.0
+margin_bottom = 487.0
+
+[node name="Healthbar" parent="UI/Gauges" index="6"]
+margin_left = 134.0
+margin_top = 498.0
+margin_right = 368.0
+margin_bottom = 520.0
+
+[node name="Waterbar" parent="UI/Gauges" index="7"]
+margin_left = 120.0
+margin_top = 524.0
+margin_right = 313.0
+margin_bottom = 538.0
+
+[node name="HBoxContainer" parent="UI/Gauges/Control" index="0"]
+margin_left = 156.0
+margin_top = 464.0
+margin_right = 266.0
+margin_bottom = 504.0
+
 [node name="EqipmentsUiGP" parent="UI" instance=ExtResource( 6 )]
 
 [connection signal="timeout" from="UI/Countdown" to="UI" method="_on_Countdown_timeout"]
+
+[editable path="UI/Gauges"]

@@ -22,19 +22,17 @@ func _process(_delta: float) -> void:
 		var p = format_text(countdown.time_left)
 		label.text = p
 	else:
-		#print("Parent Has no Scipt")
 		pass 
-	input()
 	
 """
 for testing
 """
-func input():
+func _input(event: InputEvent) -> void:
 	$Gauges.is_water_on = Input.is_action_pressed("ui_accept")
-
+	if Input.is_action_just_pressed("ui_cancel"):
+		$Gauges.change_health("damage",5)
 	
-	if Input.is_action_just_pressed("ui_select"):
-		level_finished()
+	
 		
 
 
