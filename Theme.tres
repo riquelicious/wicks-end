@@ -1,17 +1,14 @@
-[gd_resource type="Theme" load_steps=7 format=2]
+[gd_resource type="Theme" load_steps=6 format=2]
 
 [ext_resource path="res://Fonts/OldNewspaperTypes.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/metropolis/Metropolis-Regular.otf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 18
+size = 24
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0, 0, 0, 0.196078 )
-
 [sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0, 0, 0, 0.196078 )
+bg_color = Color( 0, 0, 0, 0 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 75
@@ -21,8 +18,14 @@ font_data = ExtResource( 1 )
 default_font = SubResource( 1 )
 Label/colors/font_color = Color( 1, 1, 1, 1 )
 Label/fonts/font = SubResource( 1 )
-Panel/styles/panel = SubResource( 2 )
+Panel/styles/panel = null
+Panel2/base_type = "PanelContainer"
+Panel2/styles/Background = null
 PanelContainer/styles/panel = SubResource( 4 )
+RichTextLabel/fonts/bold_font = SubResource( 1 )
+RichTextLabel/fonts/bold_italics_font = SubResource( 1 )
+RichTextLabel/fonts/italics_font = SubResource( 1 )
+RichTextLabel/fonts/mono_font = SubResource( 1 )
 TitleLabel/base_type = "Label"
 TitleLabel/colors/font_color = Color( 1, 1, 1, 1 )
 TitleLabel/fonts/font = SubResource( 3 )

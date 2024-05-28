@@ -1,0 +1,34 @@
+{
+    "LVL1":{
+        "Pictures" : {
+            "0" : "res://SceneManager/Pictures/LVL1-START1.jpg"
+
+        },
+        "END": {
+            "0": "\"Everyone, gather around. We’ve received critical information. \" ",
+            "1": "\"There’s a lead on our arsonist, but it’s not enough.\"",
+            "2": "\"We need more evidence to identify and stop him.\"",
+            "3": "\"Be vigilant and thorough. Our city depends on us.\"",
+            "4": "\"UNDERSTOOD?\"",
+            "5": "\"[Alert over the radio]\"",
+            "6": "\"Hold on. We're getting a new call. There's a house burning nearby.\"",
+            "7": "\"We’ll deal with this evidence later. Move out, now! We can’t waste any time.\""
+        },
+        "CHOICESEND": {
+            "0": {},
+            "1": {},
+            "2" : {},
+            "3" : {},
+            "4" :{
+                "0": [
+                    "\"YES SIR!\"",
+                    "\"good...\""
+                ],
+                "1": [
+                    "\"No sir...\"",
+                    "\"If you have more questions, ask Mr. Fraunmaunt\""
+                ]
+            }
+        }
+    }
+}

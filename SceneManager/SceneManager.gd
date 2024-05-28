@@ -35,7 +35,6 @@ var message = ""
 
 func _ready() -> void:
 	Music.play_music('candle')
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN) 
 	loadJson()
 	start_dialogue(Global.play_level, Global.dialogue_position)
 	#starts dialogue of current level
@@ -114,26 +113,31 @@ func _on_charTimer_timeout() -> void:
 		Delay.start()
 		pass
 
-
+func back_to_menu():
+	Global.is_gameover = true
+	destination_path = "res://Menu/MainMenu.tscn"
+	Global.back_to_menu = false
+	wait_to_start() 
+	yield(self,"wait_done")
+	TransitionScene.change_scene(destination_path)
+	Global.dialogue_position = "intro"
 func _on_DialogueDelay_timeout() -> void:
 	if (current_message == len(messages[index][pos]) - 1):
 		var local_index = index.substr(3,3)
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
 		if Global.back_to_menu == false:
 			if str(local_index).is_valid_integer():
 				if (len(levels) > int(local_index)) and (int(index) > -1):
 					destination_path = levels[int(local_index)-1]
-				else:
-					print("invalid int")
+					wait_to_start() 
+					yield(self,"wait_done")
+					TransitionScene.change_scene(destination_path)
+					Global.dialogue_position = "intro"
+			else:
+				print("invalid int")
 		elif Global.back_to_menu == true:
-			Global.is_gameover = true
-			destination_path = "res://Menu/MainMenu.tscn"
-			Global.back_to_menu = false
+			back_to_menu()
 			pass
-		wait_to_start() 
-		yield(self,"wait_done")
-		TransitionScene.change_scene(destination_path)
-		Global.dialogue_position = "intro"
+
 		pass
 	else: 
 		current_message += 1

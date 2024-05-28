@@ -1,13 +1,47 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://SceneManager/SceneManager.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://SceneManager/Pictures/LVL1-END2.jpg" type="Texture" id=3]
+[ext_resource path="res://Custom_UI_Module/HoverButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Custom_UI_Module/Skip2.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
 use_filter = true
 font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "shade_in"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "shade_out"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -53,8 +87,33 @@ texture = ExtResource( 3 )
 one_shot = true
 
 [node name="Debug" type="Label" parent="Control"]
+visible = false
 margin_right = 40.0
 margin_bottom = 23.0
 
+[node name="Skip" parent="Control" instance=ExtResource( 4 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -193.0
+margin_top = -546.0
+margin_right = -33.0
+margin_bottom = -506.0
+script = ExtResource( 5 )
+
+[node name="ColorRect" parent="Control/Skip" index="0"]
+rect_scale = Vector2( 1, 1 )
+
+[node name="Label" parent="Control/Skip/Control" index="0"]
+margin_left = 0.0
+align = 1
+
+[node name="AnimationPlayer" parent="Control/Skip/Control" index="1"]
+anims/shade_in = SubResource( 2 )
+anims/shade_out = SubResource( 3 )
+
 [connection signal="timeout" from="Control/charTimer" to="." method="_on_charTimer_timeout"]
 [connection signal="timeout" from="Control/DialogueDelay" to="." method="_on_DialogueDelay_timeout"]
+
+[editable path="Control/Skip"]

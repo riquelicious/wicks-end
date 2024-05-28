@@ -16,11 +16,13 @@ onready var typing_speed = 0.01
 
 #levels
 
-onready var level1_time = 120
+onready var level1_time = 5
 onready var level2_time = 5
 onready var level3_time = 5
 onready var level4_time = 5
 onready var level5_time = 5
+onready var gesture = "rest"
+onready var sceneDestination = "res://Menu/MainMenu.tscn"
 
 onready var is_gameover = false
 func _ready() -> void:

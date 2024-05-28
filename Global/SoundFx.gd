@@ -10,7 +10,8 @@ onready var sfxlib = {
 
 
 func _ready() -> void:
-	AudioServer.set_bus_layout(load("res://default_env.tres"))
+	#AudioServer.set_bus_layout(load("res://default_env.tres"))
+	pass
 	
 func hover_sound():
 	self.stream = sfxlib['hover']
